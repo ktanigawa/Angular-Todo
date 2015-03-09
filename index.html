@@ -4,16 +4,18 @@
   <meta charset="UTF-8">
   <title>Angular Todo</title>
 </head>
+<!-- matches .module -->
 <body ng-app="TodoApp">
 
   <div ng-controller="TodoController">
     <h1>Todo App</h1>
-
-    <input type="text" ng-model="title">
-
+    
+    <input type="text" ng-model="new_todo">
+    <button ng-click="save_todo(new_todo)">Add</button>
     <ul>
-      <li ng-repeat="animal in ['cat','pug','bird']">
-        <h2>{{animal}}</h2>
+      <li ng-repeat="todo in todos">
+        <input type="checkbox" ng-checked="todo.completed">
+        <span class="title">{{ todo.title }}</span>
       </li>
     </ul>
 
