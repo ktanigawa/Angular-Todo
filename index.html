@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular Todo</title>
+</head>
+<body ng-app="TodoApp">
+
+  <div ng-controller="TodoController">
+    <h1>Todo App</h1>
+
+    <input type="text" ng-model="title">
+
+    <ul>
+      <li ng-repeat="animal in ['cat','pug','bird']">
+        <h2>{{animal}}</h2>
+      </li>
+    </ul>
+
+  </div>
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
