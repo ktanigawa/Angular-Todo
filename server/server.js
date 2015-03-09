@@ -12,11 +12,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/api', require('./controllers/api'));
 
-// DELETE the / route: lets public/index.html be served
-// app.get('/', function (req, res) {
-//   res.send('Hello World!');
-// });
-
 var server = app.listen(3000, function () {
 
   var host = server.address().address;
