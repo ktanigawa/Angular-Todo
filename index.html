@@ -9,11 +9,18 @@
 
   <div ng-controller="TodoController">
     <h1>Todo App</h1>
-    
-    <input type="text" ng-model="new_todo">
-    <button ng-click="save_todo(new_todo)">Add</button>
+    <div>
+      <input type="text" ng-model="new_todo" ng-keypress="enter_saves($event)">
+      <button ng-click="save_todo(new_todo)">Add</button>   
+    </div>
+
+    <div>
+      <label for="search_input">Search:</label>
+      <input type="search_input" type="text" ng-model="searchQuery">
+    </div>
+
     <ul>
-      <li ng-repeat="todo in todos">
+      <li ng-repeat="todo in todos | filter:searchQuery">
         <input type="checkbox" ng-checked="todo.completed">
         <span class="title">{{ todo.title }}</span>
       </li>
