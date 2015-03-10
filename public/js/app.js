@@ -16,6 +16,9 @@ angular
         completed : false
       });
       $scope.new_todo = ""; //clear the input
+
+      // save to db
+      TodoService.create({ title : new_title });
     };
 
     $scope.enter_saves = function($event){
