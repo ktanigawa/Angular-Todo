@@ -1,11 +1,14 @@
 angular
-
+  // dependencies----v
   .module('TodoApp', [])
-  // dependencies-----------------v----------------v
-  .controller('TodoController', ['$scope', function($scope){
-   
-    // one todo called fake title ARRAY of objects
-    $scope.todos = [];
+  // dependencies-----------------v----------------v------------------v--------v
+  .controller('TodoController', ['$scope','TodoService', function($scope, TodoService){
+
+    TodoService.list().then(function (response){
+      $scope.todos = response.data;
+    });
+
+    // $scope.todos = TodoService.list(); //promise
 
     $scope.save_todo = function(new_title) {
       $scope.todos.push({
