@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Todo = require('../models/todo');
-var ObjectId = require("mongoose").Types.ObjectId;
+// var ObjectId = require("mongoose").Types.ObjectId;
 
 // list all todos
 router.get('/', function (req, res) {
@@ -22,9 +22,10 @@ router.post('/', function (req, res) {
 
 // delete todo
 router.delete('/:id', function (req, res) {
-  Todo.remove({_id: ObjectId(req.params.id)}, function (err, num_removed, result) {
+  Todo.remove() 
+  .exec(function (err, num_deleted, status){
     if (err) throw err;
-    res.json( result ); // status object
+    res.json( status );
   });
 });
 
