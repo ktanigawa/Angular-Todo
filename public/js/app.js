@@ -26,5 +26,21 @@ angular
         $scope.save_todo( $scope.new_todo );
       }
     };
+
+    // on checkbox click ... ng-change
+    $scope.check_changed = function ($event, todo_id) {
+      if( $event.srcElement.checked ){
+        TodoService.complete(todo_id);
+      } else {
+        TodoService.uncomplete(todo_id);
+      }
+    };
+
+    // on button click
+    $scope.delete = function ( todo ) {
+      console.log(todo);
+      $scope.todos.splice( $scope.todos.indexOf(todo), 1);
+      TodoService.delete( todo._id );
+    };
   }]);
 

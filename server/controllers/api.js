@@ -22,7 +22,8 @@ router.post('/', function (req, res) {
 
 // delete todo
 router.delete('/:id', function (req, res) {
-  Todo.remove() 
+  Todo.findById(req.params.id)
+  .remove() 
   .exec(function (err, num_deleted, status){
     if (err) throw err;
     res.json( status ); // status object

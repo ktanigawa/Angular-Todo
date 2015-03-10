@@ -13,4 +13,20 @@ angular // calling framework
     this.create = function ( todo ) {
       return $http.post('/api', todo ); // returns promise
     };
+
+    // PUT /api/:id/complete updates a new todo
+    this.complete = function ( todo_id ) {
+      return $http.put('/api/' +todo_id+'/complete'); // returns promise
+    };
+
+    // PUT /api/:id/uncomplete updates a new todo
+    this.uncomplete = function ( todo_id ) {
+      return $http.put('/api/' +todo_id+'/uncomplete'); // returns promise
+    };
+
+    // DELETE /api/:id destroys a todo
+    this.delete = function ( todo_id ) {
+      return $http.delete('/api/'+todo_id); // returns promise
+    };
+
   }]);
