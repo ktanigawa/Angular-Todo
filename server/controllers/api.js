@@ -25,7 +25,7 @@ router.delete('/:id', function (req, res) {
   Todo.remove() 
   .exec(function (err, num_deleted, status){
     if (err) throw err;
-    res.json( status );
+    res.json( status ); // status object
   });
 });
 
