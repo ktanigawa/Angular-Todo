@@ -17,7 +17,7 @@ angular
         completed : false
       };
       $scope.todos.push(new_todo);
-      $scope.new_todo = ""; //clear the input
+      $scope.new_todo_title_input = ""; //clear the input
 
       // save to db
       TodoService.create({ title : new_title }).then(function (response){
